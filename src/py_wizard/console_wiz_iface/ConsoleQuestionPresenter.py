@@ -92,8 +92,8 @@ class ConsoleQuestionPresenter(QuestionPresenter):
         '''Get answer from the user'''
         return raw_input("> ").rstrip()
 
-        
-    CMD_PAT = re.compile(r'^\[[a-z]+\]$')
+
+    CMD_PAT = re.compile(r'^\[.*\]$')
     def determine_input_line_type(self, line):
         '''Determine what kind of input the user supplied'''
         if len(line) == 0:

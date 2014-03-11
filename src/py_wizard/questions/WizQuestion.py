@@ -25,6 +25,9 @@ class WizQuestion(object):
     
     @property
     def answer(self):
+        return self.get_answer()
+        
+    def get_answer(self):
         return self.__answer
     
     def set_answer(self, answer, validate_answer=True):

@@ -40,6 +40,12 @@ class ListQuestion(WizQuestion):
             super(ListQuestion, self).set_answer(answer, validate_answer)    
     
     
+    def get_answer(self):
+        answers = super(ListQuestion, self).get_answer()
+        return answers[:]
+    
+
+    
 #    def present_question(self, default=None):
 #        print self.__question 
 #        if default is not None and len(default) > 0:

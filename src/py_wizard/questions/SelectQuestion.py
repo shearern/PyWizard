@@ -15,7 +15,9 @@ class SelectQuestion(SimpleQuestion):
     
     def __init__(self, name, question, options, default=None):
         super(SelectQuestion, self).__init__(name, question, default)
-        self.__options = options
+        self.__options = []
+        if options is not None:
+            self.__options.extend(options)
         self.__only_if_many = False  # Only prompt if there are many options
         
         
