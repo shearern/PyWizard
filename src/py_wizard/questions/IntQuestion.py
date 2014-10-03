@@ -14,7 +14,6 @@ class IntQuestion(SimpleQuestion):
         super(IntQuestion, self).__init__(name, question, default)
 
 
-
     def get_simple_question_child_error(self, answer):
 
         if answer is not None:
@@ -22,14 +21,12 @@ class IntQuestion(SimpleQuestion):
                 int(answer)
             except ValueError:
                 return "Answer is not an integer"
-
-            if self.__min_value is not None:
-                if int(answer) < self.__min_value:
-                    return "Answer must be greater than %d" % (self.__min_value)
-
-            if self.__max_value is not None:
-                if int(answer) > self.__max_value:
-                    return "Answer must be less than %d" % (self.__max_value)
+            
+            value = int(answer)
+            if self.__min_value is not None and value < self.__min_value:
+                return "Answer must be >= %d" % (self.__min_value)
+            if self.__max_value is not None and value > self.__min_value:
+                return "Answer must be <= %d" % (self.__max_value)
 
         return None
 

@@ -271,8 +271,9 @@ class PyWizardBase(object):
         return self.ask_question(q)
 
 
-    def ask_list(self, name, question, default=None, optional=False):
-        q = ListQuestion(name, question, default)
+    def ask_list(self, name, question, default=None, optional=False,
+                 options=None):
+        q = ListQuestion(name, question, default, options=options)
         if optional:
             q.optional(True)
         return self.ask_question(q)

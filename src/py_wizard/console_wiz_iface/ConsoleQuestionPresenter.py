@@ -112,6 +112,8 @@ class ConsoleQuestionPresenter(QuestionPresenter):
         if command == '[help]':
             # Print Commands
             commands = self.list_commands()
+            if commands is None:
+                commands = dict()
             
             # Determine Padding for commands
             command_pad = 0
