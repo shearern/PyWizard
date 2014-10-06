@@ -5,8 +5,16 @@ Created on Jul 9, 2013
 '''
 import re
 from abc import ABCMeta, abstractmethod
+from gflags import gflags
 
 from py_wizard.questions.QuestionPresenter import QuestionPresenter
+
+
+gflags.DEFINE_boolean('auto_accept_defaults',
+    short_name = 'D',
+    help = "Accept default values without prompting",
+    default = False)
+
 
 class ConsoleQuestionPresenter(QuestionPresenter):
     '''Question presenter base class for console interface'''
@@ -36,7 +44,20 @@ class ConsoleQuestionPresenter(QuestionPresenter):
             request_more_input=True
             while request_more_input:
                 
-                line = self.get_input_line()
+                line = None
+                
+                # Auto-accept default if requested
+                if gflags.FLAGS.auto_accept_defaults:
+                    user_default = self._calc_default_answer_to_present_to_user()
+                    if user_default is not None:
+                        msg ="Auto accepting default because of "
+                        print msg + " --auto_accept_defaults"
+                        line = ""
+                        
+                # Else, get input from the user
+                if line is None:
+                    line = self.get_input_line()
+                
                 line_type = self.determine_input_line_type(line)
                 if line_type == self.COMMAND_LINE:
                     request_more_input = self.handle_command(line)

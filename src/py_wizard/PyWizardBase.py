@@ -2,7 +2,6 @@
 
 from abc import ABCMeta, abstractmethod
 
-
 from py_wizard.questions.SimpleQuestion import  SimpleQuestion
 from py_wizard.questions.IntQuestion import IntQuestion
 from py_wizard.questions.YesNoQuestion import YesNoQuestion
