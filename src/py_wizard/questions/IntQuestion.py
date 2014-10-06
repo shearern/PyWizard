@@ -25,7 +25,7 @@ class IntQuestion(SimpleQuestion):
             value = int(answer)
             if self.__min_value is not None and value < self.__min_value:
                 return "Answer must be >= %d" % (self.__min_value)
-            if self.__max_value is not None and value > self.__min_value:
+            if self.__max_value is not None and value > self.__max_value:
                 return "Answer must be <= %d" % (self.__max_value)
 
         return None
