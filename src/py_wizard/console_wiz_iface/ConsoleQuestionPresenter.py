@@ -15,6 +15,11 @@ gflags.DEFINE_boolean('auto_accept_defaults',
     help = "Accept default values without prompting",
     default = False)
 
+gflags.DEFINE_boolean('auto_accept_prev',
+    short_name = 'P',
+    help = "Accept previous values without prompting",
+    default = False)
+
 
 class ConsoleQuestionPresenter(QuestionPresenter):
     '''Question presenter base class for console interface'''
@@ -45,6 +50,13 @@ class ConsoleQuestionPresenter(QuestionPresenter):
             while request_more_input:
                 
                 line = None
+                
+                # Auto-accept previous answer
+                if gflags.FLAGS.auto_accept_prev:
+                    if self.question.previous_answer is not None:
+                        msg ="Auto accepting default because of "
+                        print msg + " --auto_accept_prev"
+                        line = ""
                 
                 # Auto-accept default if requested
                 if gflags.FLAGS.auto_accept_defaults:
