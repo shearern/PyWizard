@@ -5,7 +5,7 @@ Created on Jul 9, 2013
 '''
 import re
 from abc import ABCMeta, abstractmethod
-from gflags import gflags
+import gflags
 
 from py_wizard.questions.QuestionPresenter import QuestionPresenter
 
