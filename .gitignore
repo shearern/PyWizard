@@ -3,3 +3,5 @@
 *.pyc
 
 Thumbs.db
+
+src/build
