@@ -14,3 +14,4 @@ def run_wizard(wizard, iface=None):
         wizard.iface = ConsoleInterface()
     
     wizard.run_wizard()
+

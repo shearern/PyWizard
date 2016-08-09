@@ -3,7 +3,7 @@ Created on Jul 9, 2013
 
 @author: nshearer
 '''
-from abc import ABCMeta, abstractmethod
+from abc import ABCMeta, abstractmethod, abstractproperty
 
 class WizardUserInterface(object):
     '''Class to encapsulate Wizard interaction with user'''
@@ -79,6 +79,18 @@ class WizardUserInterface(object):
     @abstractmethod
     def inform_user_of_action(self, description):
         '''Inform the user of an action being performed'''
+
+
+    @abstractmethod
+    def start_wizard_execution(self, execute_cb):
+        '''Give interface a chance to interact with the starting of the wizard execution
+
+        GUI Wizards take over the main thread, and we want the wizard
+        execution to happen in a sub-thread.
+
+        The end result is that execute_cb() gets called (wizard.run_wizard())
+        '''
+
         
         
     # -- Allow simple registration of new question types ----------------------

@@ -1,0 +1,1 @@
+'''Interface to run wizard in a GUI using Qt (pyside)'''
