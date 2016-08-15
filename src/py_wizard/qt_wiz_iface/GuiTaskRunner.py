@@ -5,7 +5,7 @@ import sys
 from PySide.QtCore import *
 from PySide.QtGui import *
 
-from Ui_GuiTaskRunner import Ui_GuiTaskRunner
+from GuiTaskRunner_UI import Ui_GuiTaskRunner
 
 from .ui_msgs import QuestionAnsweredMsg, InformUser
 

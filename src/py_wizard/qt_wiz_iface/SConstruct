@@ -7,5 +7,7 @@ env.UiClass('GuiTaskRunner_UI.py', 'GuiTaskRunner.ui')
 env.UiClass('LogItemWidget_UI.py', 'LogItemWidget.ui')
 env.UiClass('AnsweredQuestionWidget_UI.py', 'AnsweredQuestionWidget.ui')
 
+env.UiClass('QtSimpleWidget_UI.py', 'QtSimpleWidget.ui')
 env.UiClass('QtYesNoWidget_UI.py', 'QtYesNoWidget.ui')
+env.UiClass('QtSelectWidget_UI.py', 'QtSelectWidget.ui')
 

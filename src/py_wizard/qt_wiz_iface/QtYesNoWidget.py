@@ -13,6 +13,17 @@ class QtYesNoWidget(QtQuestionWidget, Ui_QtYesNoWidget):
         self.yes_btn.clicked.connect(self.yes_btn_pushed)
         self.no_btn.clicked.connect(self.no_btn_pushed)
 
+        # Set question text
+        self.question_txt.setText(self.question.question_txt)
+
+        # Set default option
+        default = presenter.question.calc_default_answer()
+        if default is not None:
+            if default:
+                self.yes_btn.setDefault(True)
+            else:
+                self.no_btn.setDefault(True)
+
 
     def yes_btn_pushed(self):
         self.question.set_answer(True)
