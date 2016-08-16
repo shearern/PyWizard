@@ -6,8 +6,8 @@ if __name__ == '__main__':
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
     # UI File
-    tpl = 'QtSimpleWidget.ui'
-    target = 'Qt%sWidget.ui' % (name)
+    tpl = 'QtSimpleWidget_UI.ui'
+    target = 'Qt%sWidget_UI.ui' % (name)
     if not os.path.exists(target):
         print "Writing %s" % (target)
         with open(tpl, 'r') as fh:

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'QtYesNoWidget.ui'
+# Form implementation generated from reading ui file 'QtYesNoWidget_UI.ui'
 #
-# Created: Mon Aug 15 15:37:17 2016
+# Created: Tue Aug 16 13:38:48 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
