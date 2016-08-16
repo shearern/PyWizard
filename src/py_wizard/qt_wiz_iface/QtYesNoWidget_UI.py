@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'QtYesNoWidget.ui'
 #
-# Created: Tue Aug 09 13:07:30 2016
+# Created: Mon Aug 15 15:37:17 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PySide import QtCore, QtGui
 class Ui_QtYesNoWidget(object):
     def setupUi(self, QtYesNoWidget):
         QtYesNoWidget.setObjectName("QtYesNoWidget")
-        QtYesNoWidget.resize(398, 114)
+        QtYesNoWidget.resize(398, 133)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Maximum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -43,7 +43,7 @@ class Ui_QtYesNoWidget(object):
 
     def retranslateUi(self, QtYesNoWidget):
         QtYesNoWidget.setWindowTitle(QtGui.QApplication.translate("QtYesNoWidget", "Form", None, QtGui.QApplication.UnicodeUTF8))
-        self.question_txt.setText(QtGui.QApplication.translate("QtYesNoWidget", "TextLabel", None, QtGui.QApplication.UnicodeUTF8))
+        self.question_txt.setText(QtGui.QApplication.translate("QtYesNoWidget", "Question text...", None, QtGui.QApplication.UnicodeUTF8))
         self.no_btn.setText(QtGui.QApplication.translate("QtYesNoWidget", "No", None, QtGui.QApplication.UnicodeUTF8))
         self.yes_btn.setText(QtGui.QApplication.translate("QtYesNoWidget", "Yes", None, QtGui.QApplication.UnicodeUTF8))
 

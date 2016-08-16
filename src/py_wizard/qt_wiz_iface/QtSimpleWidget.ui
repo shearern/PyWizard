@@ -23,7 +23,7 @@
    <item>
     <widget class="QLabel" name="question_txt">
      <property name="text">
-      <string>TextLabel</string>
+      <string>Question text...</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>

@@ -59,31 +59,31 @@ class QtInterface(WizardUserInterface):
         '''Wrap a question in a question presenter for this interface'''
 
         # if isinstance(question, NameQuestion):
-        #     return ConsoleNameQuestion(question)
+        #     return QtNameQuestion(question)
         #
         # if isinstance(question, ActionPrompt):
-        #     return ConsoleActionPrompt(question)
+        #     return QtActionPrompt(question)
         #
         if isinstance(question, YesNoQuestion):
             return QtYesNoQuestion(question)
         #
         # if isinstance(question, IntQuestion):
-        #     return ConsoleIntQuestion(question)
+        #     return QtIntQuestion(question)
         #
         # if isinstance(question, CurrencyQuestion):
-        #     return ConsoleCurrencyQuestion(question)
+        #     return QtCurrencyQuestion(question)
         #
         # if isinstance(question, DateQuestion):
-        #     return ConsoleDateQuestion(question)
+        #     return QtDateQuestion(question)
         #
         # if isinstance(question, ParagraphQuestion):
-        #     return ConsoleParagraphQuestion(question)
+        #     return QtParagraphQuestion(question)
         #
         # if isinstance(question, ListQuestion):
-        #     return ConsoleListQuestion(question)
+        #     return QtListQuestion(question)
         #
-        # if isinstance(question, SelectQuestion):
-        #     return ConsoleSelectQuestion(question)
+        if isinstance(question, SelectQuestion):
+            return QtSelectQuestion(question)
 
         if isinstance(question, SimpleQuestion):
             return QtSimpleQuestion(question)

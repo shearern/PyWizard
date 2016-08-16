@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'QtSimpleWidget.ui'
 #
-# Created: Mon Aug 15 14:20:14 2016
+# Created: Mon Aug 15 15:37:17 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -43,6 +43,6 @@ class Ui_QtSimpleWidget(object):
 
     def retranslateUi(self, QtSimpleWidget):
         QtSimpleWidget.setWindowTitle(QtGui.QApplication.translate("QtSimpleWidget", "Form", None, QtGui.QApplication.UnicodeUTF8))
-        self.question_txt.setText(QtGui.QApplication.translate("QtSimpleWidget", "TextLabel", None, QtGui.QApplication.UnicodeUTF8))
+        self.question_txt.setText(QtGui.QApplication.translate("QtSimpleWidget", "Question text...", None, QtGui.QApplication.UnicodeUTF8))
         self.ok_btn.setText(QtGui.QApplication.translate("QtSimpleWidget", "OK", None, QtGui.QApplication.UnicodeUTF8))
 
