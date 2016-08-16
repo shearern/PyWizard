@@ -1,4 +1,5 @@
 '''Interface to run wizard in a GUI using Qt (pyside)'''
+import os
 import sys
 from threading import Thread
 from Queue import Queue
@@ -16,7 +17,10 @@ from .QtSimpleQuestion import QtSimpleQuestion
 from ..questions.YesNoQuestion import YesNoQuestion
 from .QtYesNoQuestion import QtYesNoQuestion
 
-from PySide.QtGui import QApplication
+from ..questions.SelectQuestion import SelectQuestion
+from .QtSelectQuestion import QtSelectQuestion
+
+from PySide.QtGui import *
 
 class QtInterface(WizardUserInterface):
     '''Interface optimized for interacting via the console'''
@@ -43,8 +47,25 @@ class QtInterface(WizardUserInterface):
 
         # For main thread, Run Qt main loop
         app = QApplication(sys.argv)
+
+        # Set app Icon
+        # TODO: Make this a normal Qt Resource file
+        app.setWindowIcon(QIcon(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'icon.png')))
+
+        # Tell Windows our APP ID
+        #http://stackoverflow.com/questions/1551605/how-to-set-applications-taskbar-icon-in-windows-7/1552105#1552105
+        try:
+            import ctypes
+            myappid = 'py_wizard.shearern.net' # arbitrary string
+            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+        except:
+            pass
+
+        # Setup Root window
         root_win = GuiTaskRunner(self.ui_queue, self.resp_queue)
         root_win.show()
+
+        # Start Qt Main Loop
         app.exec_()
 
 
