@@ -10,6 +10,7 @@ from GuiTaskRunner_UI import Ui_GuiTaskRunner
 from .ui_msgs import QuestionAnsweredMsg, InformUser
 
 from .LogItemWidget import LogItemWidget
+from .NoQuestionWidget import NoQuestionWidget
 
 class GuiTaskRunner(QMainWindow, Ui_GuiTaskRunner):
     '''Qt MainWindow widget to interface with user'''
@@ -29,6 +30,11 @@ class GuiTaskRunner(QMainWindow, Ui_GuiTaskRunner):
         self.scrollAreaWidgetContents.setLayout(QVBoxLayout())
         self.scrollAreaWidgetContents.layout().addStretch(0)
         self.first_log_item = True
+
+        # Put waiting widget in question frame
+        self.question_widget.deleteLater()
+        self.question_widget = NoQuestionWidget(parent=self)
+        self.question_frame.layout().addWidget(self.question_widget)
 
         # Setup timer to monitor message queue
         self.queue_check_timer = QTimer(self)
@@ -91,6 +97,9 @@ class GuiTaskRunner(QMainWindow, Ui_GuiTaskRunner):
         # Remove question widget
         self.question_widget.deleteLater()
         self.question_widget = QWidget(parent=self.question_frame)
+
+        self.question_widget = NoQuestionWidget(parent=self)
+        self.question_frame.layout().addWidget(self.question_widget)
 
         # Notify wizard question is answered
         self.snd_queue.put(QuestionAnsweredMsg(self.cur_question_presenter))
