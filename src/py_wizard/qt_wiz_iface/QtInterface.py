@@ -7,7 +7,7 @@ from Queue import Queue
 from .GuiTaskRunner import GuiTaskRunner
 from py_wizard.WizardUserInterface import WizardUserInterface
 
-from .ui_msgs import AskQuestionMsg, InformUser, LogQuestionAnswer
+from .ui_msgs import AskQuestionMsg, InformUser, LogQuestionAnswer, AppExit
 
 from .QtQuestionPresenter import QtQuestionPresenter
 
@@ -68,6 +68,8 @@ class QtInterface(WizardUserInterface):
         # Start Qt Main Loop
         app.exec_()
 
+        # Tell wizard we've exited (maybe early)
+        self.resp_queue.put(AppExit())
 
         # # Add log samples
         # root.scrollAreaWidgetContents.setLayout(QVBoxLayout())
@@ -122,7 +124,10 @@ class QtInterface(WizardUserInterface):
         # Wait for response
         # See GuiTaskrunner._question_finished()
         resp = self.resp_queue.get()
-        if resp.TYPE != 'answer':
+        if resp.TYPE == 'exit':
+            print "GUI Exited"
+            sys.exit(2)
+        elif resp.TYPE != 'answer':
             raise Exception("Expected answer msg, but got %s" % (resp.TYPE))
 
         # Record question answer in log

@@ -24,3 +24,7 @@ class InformUser(object):
     TYPE='inform'
     def __init__(self, text):
         self.text = text
+
+
+class AppExit(object):
+    TYPE='exit'
