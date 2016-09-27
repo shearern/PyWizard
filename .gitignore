@@ -2,6 +2,7 @@
 /.project
 *.pyc
 
-build/
-
 Thumbs.db
+
+build/
+src/build
