@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'QtYesNoWidget_UI.ui'
 #
-# Created: Tue Aug 16 13:38:48 2016
+# Created: Tue Aug 16 14:13:21 2016
 #      by: pyside-uic 0.2.15 running on PySide 1.2.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -22,6 +22,8 @@ class Ui_QtYesNoWidget(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.question_txt = QtGui.QLabel(QtYesNoWidget)
         self.question_txt.setWordWrap(True)
+        self.question_txt.setOpenExternalLinks(True)
+        self.question_txt.setTextInteractionFlags(QtCore.Qt.LinksAccessibleByMouse|QtCore.Qt.TextSelectableByMouse)
         self.question_txt.setObjectName("question_txt")
         self.verticalLayout.addWidget(self.question_txt)
         spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)

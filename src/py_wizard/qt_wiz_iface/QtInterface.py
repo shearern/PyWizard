@@ -7,7 +7,7 @@ from Queue import Queue
 from .GuiTaskRunner import GuiTaskRunner
 from py_wizard.WizardUserInterface import WizardUserInterface
 
-from .ui_msgs import AskQuestionMsg, InformUser, LogQuestionAnswer
+from .ui_msgs import AskQuestionMsg, InformUser, InformUserAction, LogQuestionAnswer
 
 from .QtQuestionPresenter import QtQuestionPresenter
 
@@ -147,7 +147,8 @@ class QtInterface(WizardUserInterface):
 
     def inform_user_of_action(self, description):
         '''Inform the user of an action being performed'''
-        self.ui_queue.put(InformUser(description))
+        self.ui_queue.put(InformUserAction(description))
+
 
 
 

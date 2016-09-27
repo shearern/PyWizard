@@ -10,3 +10,6 @@ class NoQuestionWidget(QWidget, Ui_NoQuestionWidget):
         super(NoQuestionWidget, self).__init__(parent=parent)
         self.setupUi(self)
 
+        # Clear placeholder text
+        self.last_action_lbl.setText("")
+

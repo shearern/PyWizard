@@ -75,6 +75,18 @@ class GuiTaskRunner(QMainWindow, Ui_GuiTaskRunner):
             item = LogItemWidget(parent=self.log_frame, text=msg.text)
             self.scrollAreaWidgetContents.layout().insertWidget(0, item)
 
+        elif msg.TYPE == 'inform_action':
+            # Add to log
+            self._add_log_seperator()
+            item = LogItemWidget(parent=self.log_frame, text=msg.text)
+            self.scrollAreaWidgetContents.layout().insertWidget(0, item)
+
+            # Add to current "Working ..."
+            try:
+                self.question_widget.last_action_lbl.setText(msg.text) # May not exist if "Working..." not up
+            except AttributeError:
+                pass
+
         else:
             raise Exception("Unknown message type: " + msg.TYPE)
 

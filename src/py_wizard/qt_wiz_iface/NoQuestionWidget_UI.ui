@@ -10,12 +10,18 @@
     <height>134</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="wokring_lbl">
      <property name="styleSheet">
       <string notr="true">color: rgb(136, 136, 136);</string>
      </property>
@@ -23,6 +29,29 @@
       <string>Working ...</string>
      </property>
     </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="last_action_lbl">
+     <property name="styleSheet">
+      <string notr="true">color: rgb(136, 136, 136);</string>
+     </property>
+     <property name="text">
+      <string>Last action description</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>

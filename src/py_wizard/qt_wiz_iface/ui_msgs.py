@@ -24,3 +24,9 @@ class InformUser(object):
     TYPE='inform'
     def __init__(self, text):
         self.text = text
+
+class InformUserAction(object):
+    TYPE='inform_action'
+    def __init__(self, text):
+        self.text = text
+
