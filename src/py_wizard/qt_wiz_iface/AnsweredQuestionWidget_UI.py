@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'AnsweredQuestionWidget_UI.ui'
 #
-# Created: Tue Aug 16 13:38:43 2016
-#      by: pyside-uic 0.2.15 running on PySide 1.2.2
+# Created: Fri Aug 26 11:46:03 2016
+#      by: pyside-uic 0.2.15 running on PySide 1.2.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -25,6 +25,7 @@ class Ui_AnsweredQuestionWidget(object):
         font.setFamily("Lucida Console")
         self.question_text.setFont(font)
         self.question_text.setWordWrap(True)
+        self.question_text.setTextInteractionFlags(QtCore.Qt.LinksAccessibleByMouse|QtCore.Qt.TextSelectableByMouse)
         self.question_text.setObjectName("question_text")
         self.verticalLayout.addWidget(self.question_text)
         self.horizontalLayout = QtGui.QHBoxLayout()

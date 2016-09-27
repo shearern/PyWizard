@@ -11,7 +11,6 @@ class QtSimpleWidget(QtQuestionWidget, Ui_QtSimpleWidget):
         self.setupUi(self)
 
         self.ok_btn.clicked.connect(self.ok_btn_pushed)
-        self.ok_btn.setDefault(True)
 
         # Set question text
         self.question_txt.setText(presenter.question.question_txt)
@@ -20,6 +19,10 @@ class QtSimpleWidget(QtQuestionWidget, Ui_QtSimpleWidget):
         default = presenter.question.calc_default_answer()
         if default is not None:
             self.user_answer.setText(str(default))
+
+        self.ok_btn.setDefault(True)
+        self.ok_btn.setFocus()
+
 
     def ok_btn_pushed(self):
         self.question.set_answer(self.user_answer.text())

@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'QtSimpleWidget_UI.ui'
 #
-# Created: Tue Aug 16 13:38:47 2016
-#      by: pyside-uic 0.2.15 running on PySide 1.2.2
+# Created: Fri Aug 26 11:22:14 2016
+#      by: pyside-uic 0.2.15 running on PySide 1.2.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -22,6 +22,7 @@ class Ui_QtSimpleWidget(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.question_txt = QtGui.QLabel(QtSimpleWidget)
         self.question_txt.setWordWrap(True)
+        self.question_txt.setTextInteractionFlags(QtCore.Qt.LinksAccessibleByMouse|QtCore.Qt.TextSelectableByMouse)
         self.question_txt.setObjectName("question_txt")
         self.verticalLayout.addWidget(self.question_txt)
         spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
@@ -34,6 +35,8 @@ class Ui_QtSimpleWidget(object):
         spacerItem1 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem1)
         self.ok_btn = QtGui.QPushButton(QtSimpleWidget)
+        self.ok_btn.setAutoDefault(True)
+        self.ok_btn.setDefault(True)
         self.ok_btn.setObjectName("ok_btn")
         self.horizontalLayout.addWidget(self.ok_btn)
         self.verticalLayout.addLayout(self.horizontalLayout)

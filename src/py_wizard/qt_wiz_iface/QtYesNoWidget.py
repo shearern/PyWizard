@@ -20,9 +20,13 @@ class QtYesNoWidget(QtQuestionWidget, Ui_QtYesNoWidget):
         default = presenter.question.calc_default_answer()
         if default is not None:
             if default:
+                self.yes_btn.setFocus()
                 self.yes_btn.setDefault(True)
+                self.yes_btn.setAutoDefault(True)
             else:
+                self.no_btn.setFocus()
                 self.no_btn.setDefault(True)
+                self.no_btn.setAutoDefault(True)
 
 
     def yes_btn_pushed(self):

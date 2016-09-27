@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'LogItemWidget_UI.ui'
 #
-# Created: Tue Aug 16 13:38:45 2016
-#      by: pyside-uic 0.2.15 running on PySide 1.2.2
+# Created: Fri Aug 26 11:55:20 2016
+#      by: pyside-uic 0.2.15 running on PySide 1.2.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -21,7 +21,11 @@ class Ui_LogItemWidget(object):
         self.verticalLayout = QtGui.QVBoxLayout(LogItemWidget)
         self.verticalLayout.setObjectName("verticalLayout")
         self.note = QtGui.QLabel(LogItemWidget)
+        font = QtGui.QFont()
+        font.setFamily("Lucida Console")
+        self.note.setFont(font)
         self.note.setWordWrap(True)
+        self.note.setTextInteractionFlags(QtCore.Qt.LinksAccessibleByMouse|QtCore.Qt.TextSelectableByMouse)
         self.note.setObjectName("note")
         self.verticalLayout.addWidget(self.note)
 
