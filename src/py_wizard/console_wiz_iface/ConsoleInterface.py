@@ -43,8 +43,19 @@ class ConsoleInterface(WizardUserInterface):
     
     def __init__(self):
         super(ConsoleInterface, self).__init__()
-        
-        
+
+
+    def start_wizard_execution(self, execute_cb):
+        '''Give interface a chance to interact with the starting of the wizard execution
+
+        GUI Wizards take over the main thread, and we want the wizard
+        execution to happen in a sub-thread.
+
+        The end result is that execute_cb() gets called (wizard.run_wizard())
+        '''
+        execute_cb()
+
+
     def build_standard_q_presenter(self, question):
         '''Wrap a question in a question presenter for this interface'''
         if isinstance(question, NameQuestion):

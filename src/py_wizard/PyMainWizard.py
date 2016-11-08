@@ -7,7 +7,6 @@ from abc import ABCMeta, abstractmethod
 from PyWizardBase import PyWizardBase
 from py_wizard.questions.YesNoQuestion import YesNoQuestion
 
-
 class PyMainWizard(PyWizardBase):
     '''The main/root wizard.
     
@@ -38,8 +37,18 @@ class PyMainWizard(PyWizardBase):
 
 
     # -- Main Execution ------------------------------------------------------
-    
+
     def run_wizard(self):
+        '''This calls run_wizard, but gives iface a chance to take over thread
+
+        GUI Wizards take over the main thread, and we want the wizard
+        execution to happen in a sub-thread
+        '''
+        self.iface.start_wizard_execution(self._run_wizard)
+
+    
+    def _run_wizard(self):
+        '''Execute the wizard (this method manages the lifecycle of the wizard)'''
         self.enable_answer_saving = False
         self.ask_presave_questions()
         self.configure_answer_saving()

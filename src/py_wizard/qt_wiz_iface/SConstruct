@@ -1,0 +1,14 @@
+uic = Builder(action = 'c:\Python27\Scripts\pyside-uic.exe $SOURCE -o $TARGET')
+
+env = Environment(BUILDERS = {'UiClass' : uic})
+
+env.UiClass('GuiTaskRunner_UI.py', 'GuiTaskRunner_UI.ui')
+
+env.UiClass('LogItemWidget_UI.py', 'LogItemWidget_UI.ui')
+env.UiClass('AnsweredQuestionWidget_UI.py', 'AnsweredQuestionWidget_UI.ui')
+
+env.UiClass('NoQuestionWidget_UI.py', 'NoQuestionWidget_UI.ui')
+env.UiClass('QtSimpleWidget_UI.py', 'QtSimpleWidget_UI.ui')
+env.UiClass('QtYesNoWidget_UI.py', 'QtYesNoWidget_UI.ui')
+env.UiClass('QtSelectWidget_UI.py', 'QtSelectWidget_UI.ui')
+
