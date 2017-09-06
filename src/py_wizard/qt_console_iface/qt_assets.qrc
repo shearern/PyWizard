@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="assets">
+    <file>wizard.ico</file>
+    <file>wizard_256.png</file>
+  </qresource>
+</RCC>
