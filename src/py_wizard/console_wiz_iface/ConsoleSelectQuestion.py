@@ -3,8 +3,8 @@ Created on Sep 20, 2013
 
 @author: nshearer
 '''
-from ConsoleSimpleQuestion import ConsoleSimpleQuestion
-from ConsoleSimpleQuestion import UserAnswerValidationError
+from .ConsoleSimpleQuestion import ConsoleSimpleQuestion
+from .ConsoleSimpleQuestion import UserAnswerValidationError
 
 class ConsoleSelectQuestion(ConsoleSimpleQuestion):
     
@@ -18,7 +18,7 @@ class ConsoleSelectQuestion(ConsoleSimpleQuestion):
         if self.question.only_if_many:
             options = self.question.options
             if len(options) == 1:
-                print ">", options[0], "(only option)"
+                print(">", options[0], "(only option)")
                 return options[0]
         
         # Else, ask user
@@ -27,9 +27,9 @@ class ConsoleSelectQuestion(ConsoleSimpleQuestion):
     
     def present_question(self):
         super(ConsoleSelectQuestion, self).present_question()
-        print "Options:"
+        print("Options:")
         for i, option in enumerate(self.question.options):
-            print " %02d)  %s" % (i+1, option)
+            print(" %02d)  %s" % (i+1, option))
         
         
     def encode_answer_to_native(self, user_answer):

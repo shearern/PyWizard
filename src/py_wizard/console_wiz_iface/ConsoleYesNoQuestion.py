@@ -3,7 +3,7 @@ Created on Jul 10, 2013
 
 @author: nshearer
 '''
-from ConsoleSimpleQuestion import ConsoleSimpleQuestion, UserAnswerValidationError
+from .ConsoleSimpleQuestion import ConsoleSimpleQuestion, UserAnswerValidationError
 
 
 class ConsoleYesNoQuestion(ConsoleSimpleQuestion):

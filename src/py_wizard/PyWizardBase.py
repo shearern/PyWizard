@@ -14,9 +14,8 @@ from py_wizard.questions.ListQuestion import ListQuestion
 from py_wizard.questions.ActionPrompt import ActionPrompt
 
 
-class PyWizardBase(object):
+class PyWizardBase(object, metaclass=ABCMeta):
     '''Base class for leading user through a set of questions'''
-    __metaclass__ = ABCMeta
 
     def __init__(self):
         self.answers = dict()
@@ -59,12 +58,12 @@ class PyWizardBase(object):
 
 
     def print_question_separator(self):
-        print ""
+        print("")
 
 
     def get_answer(self, question_name, default=None, required=False):
         '''Get the answer to a question already asked'''
-        if not self.answers.has_key(question_name):
+        if question_name not in self.answers:
             if required:
                 raise IndexError("Question not answer yet:" + question_name)
             else:
@@ -98,7 +97,7 @@ class PyWizardBase(object):
         # Ensure Wizard ID is valid
 
 
-        if self._sub_wizards.has_key(wizard.wiz_id):
+        if wizard.wiz_id in self._sub_wizards:
             msg = "Sub Wizard with id %s already exists"
             raise IndexError(msg % (wizard.wiz_id))
 
@@ -166,8 +165,8 @@ class PyWizardBase(object):
     def collect_child_answers(self):
         '''Assemble answers from all children (recursive)'''
         answers = dict()
-        for wiz in self._sub_wizards.values():
-            for name, value in wiz.answers.items():
+        for wiz in list(self._sub_wizards.values()):
+            for name, value in list(wiz.answers.items()):
                 answers[name] = value
             for name, value in wiz.collect_child_answers():
                 answers[name] = value
@@ -198,9 +197,9 @@ class PyWizardBase(object):
 
         The previous answers become defaults
         '''
-        if autosaved_answers.has_key('self'):
+        if 'self' in autosaved_answers:
             self.saved_answers = autosaved_answers['self']
-        if autosaved_answers.has_key('subwizards'):
+        if 'subwizards' in autosaved_answers:
             self._saved_answers_for_sub_wizards = autosaved_answers['subwizards']
 
 

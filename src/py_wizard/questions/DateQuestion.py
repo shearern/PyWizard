@@ -5,7 +5,7 @@ Created on Mar 25, 2013
 '''
 from datetime import datetime
 
-from SimpleQuestion import SimpleQuestion
+from .SimpleQuestion import SimpleQuestion
 
 class DateQuestion(SimpleQuestion):
     '''A question where the answer is a date'''

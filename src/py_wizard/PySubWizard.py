@@ -1,15 +1,14 @@
 #!/usr/bin/python
 
-from PyWizardBase import PyWizardBase
+from .PyWizardBase import PyWizardBase
 from abc import ABCMeta, abstractmethod
 
-class PySubWizard(PyWizardBase):
+class PySubWizard(PyWizardBase, metaclass=ABCMeta):
     '''A sub wizard base.
     
     Sub wizards are intended to be attached to parent wizards (either other
     sub wizards, or to the main wizard) to modularize the wizard logic.
     '''
-    __metaclass__ = ABCMeta
     
     def __init__(self):
         super(PySubWizard, self).__init__()
@@ -100,7 +99,7 @@ class PySubWizard(PyWizardBase):
         
         # Get requested answer
         if self.parent_answers is not None:
-            if self.parent_answers.has_key(name):
+            if name in self.parent_answers:
                 return self.parent_answers[name]
         return default
         
@@ -117,7 +116,7 @@ class PySubWizard(PyWizardBase):
         
         # Get requested answer
         if self.sibling_answers is not None:
-            if self.sibling_answers.has_key(name):
+            if name in self.sibling_answers:
                 return self.sibling_answers[name]
         return default
         

@@ -21,9 +21,8 @@ gflags.DEFINE_boolean('auto_accept_prev',
     default = False)
 
 
-class ConsoleQuestionPresenter(QuestionPresenter):
+class ConsoleQuestionPresenter(QuestionPresenter, metaclass=ABCMeta):
     '''Question presenter base class for console interface'''
-    __metaclass__ = ABCMeta
     
     BLANK_LINE='line'
     ANSWER_LINE='answer'
@@ -55,7 +54,7 @@ class ConsoleQuestionPresenter(QuestionPresenter):
                 if gflags.FLAGS.auto_accept_prev:
                     if self.question.previous_answer is not None:
                         msg ="Auto accepting default because of "
-                        print msg + " --auto_accept_prev"
+                        print(msg + " --auto_accept_prev")
                         line = ""
                 
                 # Auto-accept default if requested
@@ -63,7 +62,7 @@ class ConsoleQuestionPresenter(QuestionPresenter):
                     user_default = self._calc_default_answer_to_present_to_user()
                     if user_default is not None:
                         msg ="Auto accepting default because of "
-                        print msg + " --auto_accept_defaults"
+                        print(msg + " --auto_accept_defaults")
                         line = ""
                         
                 # Else, get input from the user
@@ -123,7 +122,7 @@ class ConsoleQuestionPresenter(QuestionPresenter):
         
     def get_input_line(self):
         '''Get answer from the user'''
-        return raw_input("> ").rstrip()
+        return input("> ").rstrip()
 
 
     CMD_PAT = re.compile(r'^\[.*\]$')
@@ -154,22 +153,22 @@ class ConsoleQuestionPresenter(QuestionPresenter):
                 command_pad = max(command_pad, len(cmd))
                 
             # Print Commands
-            print "Available commands for this question:"
+            print("Available commands for this question:")
             msg_pat = "%%-%ds %%s" % (command_pad)
             for cmd in sorted(commands.keys()):
-                print msg_pat % (cmd, commands[cmd])
+                print(msg_pat % (cmd, commands[cmd]))
                 
             return True
                 
         elif command == '[blank]':
-            print "Clearing answer"
+            print("Clearing answer")
             self.answer = None
             
             return True
             
         elif command == '[default]':
             default_answer = self._calc_default_answer_to_present_to_user()
-            print "Using default answer: %s" % (default_answer)
+            print("Using default answer: %s" % (default_answer))
             self.use_default_value()
             
             return False
@@ -184,7 +183,7 @@ class ConsoleQuestionPresenter(QuestionPresenter):
         '''
         default_answer = self._calc_default_answer_to_present_to_user()
         if default_answer is not None:
-            print "Using default:", default_answer
+            print("Using default:", default_answer)
             self.use_default_value()
             return False
         else:
@@ -238,7 +237,7 @@ class ConsoleQuestionPresenter(QuestionPresenter):
 
 
     def present_validation_error(self, error):
-        print "!! Answer failed validation:", error
+        print("!! Answer failed validation:", error)
         
 
     def handle_validation_error(self):

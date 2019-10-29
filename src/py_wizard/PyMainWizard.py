@@ -1,20 +1,19 @@
 #!/usr/bin/python
 
 import os
-from cPickle import dump, load
+from pickle import dump, load
 from abc import ABCMeta, abstractmethod
 
-from PyWizardBase import PyWizardBase
+from .PyWizardBase import PyWizardBase
 from py_wizard.questions.YesNoQuestion import YesNoQuestion
 
 
-class PyMainWizard(PyWizardBase):
+class PyMainWizard(PyWizardBase, metaclass=ABCMeta):
     '''The main/root wizard.
     
     This class represents the entire wizard, but may have sub-wizards attached
     to split up the wizard logic.
     '''
-    __metaclass__ = ABCMeta
     
     
     def __init__(self):
@@ -54,7 +53,7 @@ class PyMainWizard(PyWizardBase):
         
     
     def say_goodbye(self):
-        print "Wizard Finished"
+        print("Wizard Finished")
     
     # -- Main Question Hooks -------------------------------------------------
     
@@ -185,11 +184,11 @@ class PyMainWizard(PyWizardBase):
         @param child_id: ID of child wizard if saved for sub-wizard
         '''
         if child_id is None:
-            if self.__saved_answers.has_key(name):
+            if name in self.__saved_answers:
                 return self.__saved_answers[name]
         else:
             key = (child_id, name)
-            if self.__saved_answers_for_sub_wizards.has_key(key):
+            if key in self.__saved_answers_for_sub_wizards:
                 return self.__saved_answers_for_sub_wizards[key]
             
     
@@ -204,7 +203,7 @@ class PyMainWizard(PyWizardBase):
     def debug_answers(self):
         '''Print out answers object'''
         for name in sorted(self.answers.keys()):
-            print "%-20s => %s" % (name, self.answers[name])
+            print("%-20s => %s" % (name, self.answers[name]))
         
         
     # -- Cross-Wizard Value Passing ------------------------------------------
@@ -227,7 +226,7 @@ class PyMainWizard(PyWizardBase):
         @param required: Will raise exception if value not registered
         @param default: Default value to return if not registered
         '''
-        if self._cross_wizard_reg.has_key(name):
+        if name in self._cross_wizard_reg:
             return self._cross_wizard_reg[name]
         elif required:
             raise IndexError("Global var not registered: '%s'" % (name))

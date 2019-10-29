@@ -3,7 +3,7 @@ Created on Mar 25, 2013
 
 @author: nate
 '''
-from SimpleQuestion import SimpleQuestion
+from .SimpleQuestion import SimpleQuestion
 
 class CurrencyQuestion(SimpleQuestion):
     '''A question where the answer is a dollar amount.

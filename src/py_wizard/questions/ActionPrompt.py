@@ -3,7 +3,7 @@ Created on May 8, 2013
 
 @author: nshearer
 '''
-from YesNoQuestion import YesNoQuestion
+from .YesNoQuestion import YesNoQuestion
 
 class ActionPrompt(YesNoQuestion):
     '''This prompts the user to perform an action

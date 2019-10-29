@@ -3,7 +3,7 @@ Created on Jul 9, 2013
 
 @author: nshearer
 '''
-from ConsoleQuestionPresenter import ConsoleQuestionPresenter
+from .ConsoleQuestionPresenter import ConsoleQuestionPresenter
 
 class UserAnswerValidationError(Exception): pass
 
@@ -26,7 +26,7 @@ class ConsoleSimpleQuestion(ConsoleQuestionPresenter):
             # If you need to customize the display of the default value,
             # then override decode_answer_to_text() 
             
-        print question
+        print(question)
         
         
     def get_validation_error_for_user_answer(self, user_answer):
@@ -38,7 +38,7 @@ class ConsoleSimpleQuestion(ConsoleQuestionPresenter):
         try:
             answer = self.encode_answer_to_native(user_answer)
             return self.question.get_validation_error(answer)
-        except UserAnswerValidationError, e:
+        except UserAnswerValidationError as e:
             return str(e)
         return None
 

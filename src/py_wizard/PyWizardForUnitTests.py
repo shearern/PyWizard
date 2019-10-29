@@ -3,7 +3,7 @@ Created on Jul 30, 2013
 
 @author: nshearer
 '''
-from PyMainWizard import PyMainWizard
+from .PyMainWizard import PyMainWizard
 
 class PyWizardForUnitTests(PyMainWizard):
     '''Wizard class to support unit tests'''

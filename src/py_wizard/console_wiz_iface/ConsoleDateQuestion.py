@@ -5,8 +5,8 @@ Created on Sep 20, 2013
 '''
 from datetime import datetime
 
-from ConsoleSimpleQuestion import ConsoleSimpleQuestion
-from ConsoleSimpleQuestion import UserAnswerValidationError
+from .ConsoleSimpleQuestion import ConsoleSimpleQuestion
+from .ConsoleSimpleQuestion import UserAnswerValidationError
 
 
 class ConsoleDateQuestion(ConsoleSimpleQuestion):

@@ -3,8 +3,8 @@ Created on Sep 20, 2013
 
 @author: nshearer
 '''
-from ConsoleSimpleQuestion import ConsoleSimpleQuestion
-from ConsoleSimpleQuestion import UserAnswerValidationError
+from .ConsoleSimpleQuestion import ConsoleSimpleQuestion
+from .ConsoleSimpleQuestion import UserAnswerValidationError
 
 
 class ConsoleCurrencyQuestion(ConsoleSimpleQuestion):

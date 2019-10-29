@@ -5,9 +5,8 @@ Created on Jul 9, 2013
 '''
 from abc import ABCMeta, abstractmethod
 
-class WizardUserInterface(object):
+class WizardUserInterface(object, metaclass=ABCMeta):
     '''Class to encapsulate Wizard interaction with user'''
-    __metaclass__ = ABCMeta
     
     def __init__(self):
         self.__addtl_question_presenters = list()

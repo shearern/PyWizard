@@ -5,7 +5,7 @@ Created on Mar 26, 2013
 '''
 import re
 
-from SimpleQuestion import SimpleQuestion
+from .SimpleQuestion import SimpleQuestion
 
 class NameQuestion(SimpleQuestion):
     '''A question where the result needs to be a variable name'''

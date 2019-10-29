@@ -3,7 +3,7 @@ Created on Mar 25, 2013
 
 @author: nate
 '''
-from SimpleQuestion import SimpleQuestion
+from .SimpleQuestion import SimpleQuestion
 
 class IntQuestion(SimpleQuestion):
     '''A question where the answer is an integer'''

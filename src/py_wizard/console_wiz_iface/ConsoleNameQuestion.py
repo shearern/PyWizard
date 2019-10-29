@@ -3,7 +3,7 @@ Created on Sep 20, 2013
 
 @author: nshearer
 '''
-from ConsoleSimpleQuestion import ConsoleSimpleQuestion
+from .ConsoleSimpleQuestion import ConsoleSimpleQuestion
 
 
 class ConsoleNameQuestion(ConsoleSimpleQuestion):

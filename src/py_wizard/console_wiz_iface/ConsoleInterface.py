@@ -5,37 +5,37 @@ Created on Jul 9, 2013
 '''
 from py_wizard.WizardUserInterface import WizardUserInterface
 
-from ConsoleQuestionPresenter import ConsoleQuestionPresenter
+from .ConsoleQuestionPresenter import ConsoleQuestionPresenter
 
 from py_wizard.questions.SimpleQuestion import SimpleQuestion
-from ConsoleSimpleQuestion import ConsoleSimpleQuestion
+from .ConsoleSimpleQuestion import ConsoleSimpleQuestion
 
 from py_wizard.questions.NameQuestion import NameQuestion
-from ConsoleNameQuestion import ConsoleNameQuestion
+from .ConsoleNameQuestion import ConsoleNameQuestion
 
 from py_wizard.questions.YesNoQuestion import YesNoQuestion
-from ConsoleYesNoQuestion import ConsoleYesNoQuestion
+from .ConsoleYesNoQuestion import ConsoleYesNoQuestion
 
 from py_wizard.questions.IntQuestion import IntQuestion
-from ConsoleIntQuestion import ConsoleIntQuestion
+from .ConsoleIntQuestion import ConsoleIntQuestion
 
 from py_wizard.questions.CurrencyQuestion import CurrencyQuestion
-from ConsoleCurrencyQuestion import ConsoleCurrencyQuestion
+from .ConsoleCurrencyQuestion import ConsoleCurrencyQuestion
 
 from py_wizard.questions.DateQuestion import DateQuestion
-from ConsoleDateQuestion import ConsoleDateQuestion
+from .ConsoleDateQuestion import ConsoleDateQuestion
 
 from py_wizard.questions.ActionPrompt import ActionPrompt
-from ConsoleActionPrompt import ConsoleActionPrompt
+from .ConsoleActionPrompt import ConsoleActionPrompt
 
 from py_wizard.questions.ParagraphQuestion import ParagraphQuestion
-from ConsoleParagraphQuestion import ConsoleParagraphQuestion
+from .ConsoleParagraphQuestion import ConsoleParagraphQuestion
 
 from py_wizard.questions.ListQuestion import ListQuestion
-from ConsoleListQuestion import ConsoleListQuestion
+from .ConsoleListQuestion import ConsoleListQuestion
 
 from py_wizard.questions.SelectQuestion import SelectQuestion
-from ConsoleSelectQuestion import ConsoleSelectQuestion
+from .ConsoleSelectQuestion import ConsoleSelectQuestion
 
 class ConsoleInterface(WizardUserInterface):
     '''Interface optimized for interacting via the console'''
@@ -97,11 +97,11 @@ class ConsoleInterface(WizardUserInterface):
         '''Inform the user of anything.
         
         Typically this will be akin to a print'''
-        print description
+        print(description)
     
     
     def inform_user_of_action(self, description):
         '''Inform the user of an action being performed'''
-        print description
+        print(description)
         
         

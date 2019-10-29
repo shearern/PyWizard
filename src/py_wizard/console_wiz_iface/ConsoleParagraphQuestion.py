@@ -3,7 +3,7 @@ Created on Sep 20, 2013
 
 @author: nshearer
 '''
-from ConsoleQuestionPresenter import ConsoleQuestionPresenter
+from .ConsoleQuestionPresenter import ConsoleQuestionPresenter
 
 class ConsoleParagraphQuestion(ConsoleQuestionPresenter):
     
@@ -18,14 +18,14 @@ class ConsoleParagraphQuestion(ConsoleQuestionPresenter):
         
         default_answer = self._calc_default_answer_to_present_to_user()
             
-        print question_txt
+        print(question_txt)
         
         if default_answer is not None:
-            print "-- Default Value: --"
-            print default_answer
-            print "--------------------"
+            print("-- Default Value: --")
+            print(default_answer)
+            print("--------------------")
             
-        print "Enter [end] when finished"
+        print("Enter [end] when finished")
         
         
     def get_validation_error_for_user_answer(self, user_answer):
@@ -54,7 +54,7 @@ class ConsoleParagraphQuestion(ConsoleQuestionPresenter):
             
             # Use default if exists
             if default_answer is not None:
-                print "Using default"
+                print("Using default")
                 self.use_default_value()
                 return False
             

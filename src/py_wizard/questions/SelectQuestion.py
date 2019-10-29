@@ -5,7 +5,7 @@ Created on Mar 26, 2013
 '''
 import re
 
-from SimpleQuestion import SimpleQuestion
+from .SimpleQuestion import SimpleQuestion
 
 class SelectQuestion(SimpleQuestion):
     '''A question where the user must select from a list of options

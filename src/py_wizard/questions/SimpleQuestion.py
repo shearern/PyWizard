@@ -3,7 +3,7 @@ Created on Mar 25, 2013
 
 @author: nate
 '''
-from WizQuestion import WizQuestion
+from .WizQuestion import WizQuestion
 
 class SimpleQuestion(WizQuestion):
     '''A question that takes a single line of text as an answer'''

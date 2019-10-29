@@ -6,9 +6,8 @@ Created on Mar 25, 2013
 import re
 from abc import ABCMeta, abstractmethod
 
-class WizQuestion(object):
+class WizQuestion(object, metaclass=ABCMeta):
     '''A question to the user.  Like a form Field'''
-    __metaclass__ = ABCMeta
     
     DIRS = dict()
     

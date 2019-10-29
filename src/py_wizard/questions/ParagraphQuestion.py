@@ -3,7 +3,7 @@ Created on Mar 26, 2013
 
 @author: nate
 '''
-from WizQuestion import WizQuestion
+from .WizQuestion import WizQuestion
 
 class ParagraphQuestion(WizQuestion):
     '''A question that takes multiple lines of text as an answer'''

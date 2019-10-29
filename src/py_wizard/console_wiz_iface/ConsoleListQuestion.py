@@ -3,7 +3,7 @@ Created on Sep 20, 2013
 
 @author: nshearer
 '''
-from ConsoleQuestionPresenter import ConsoleQuestionPresenter
+from .ConsoleQuestionPresenter import ConsoleQuestionPresenter
 
 
 class ConsoleListQuestion(ConsoleQuestionPresenter):
@@ -46,20 +46,20 @@ class ConsoleListQuestion(ConsoleQuestionPresenter):
         
         question_txt = self.question.question_txt
             
-        print question_txt
+        print(question_txt)
         
         default_answer = self.question.calc_default_answer()
         if default_answer is not None:
             if len(default_answer) > 0:
-                print "-- Default Value: --"
+                print("-- Default Value: --")
                 for item in default_answer:
-                    print " -", item
-                print "--------------------"
+                    print(" -", item)
+                print("--------------------")
             
-        print "Enter Items one per line"
-        print "Enter blank line to end the list. ",
-        print "Enter [blank] to answer with a blank list"
-        print ""
+        print("Enter Items one per line")
+        print("Enter blank line to end the list. ", end=' ')
+        print("Enter [blank] to answer with a blank list")
+        print("")
         
         
     def get_validation_error_for_user_answer(self, user_answer):
@@ -85,7 +85,7 @@ class ConsoleListQuestion(ConsoleQuestionPresenter):
         '''
         # If no items given, use default value
         if self.user_answer is None or len(self.user_answer) == 0:
-            print "Using default"
+            print("Using default")
             self.use_default_value()
             
         return False
@@ -115,7 +115,7 @@ class ConsoleListQuestion(ConsoleQuestionPresenter):
         @return bool: Request more input from user?
         '''
         if command == '[blank]':
-            print "Using a blank list"
+            print("Using a blank list")
             self.user_answer = list()
             return False
         
